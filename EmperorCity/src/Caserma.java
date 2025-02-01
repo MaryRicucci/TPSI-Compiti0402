@@ -5,8 +5,6 @@ public class Caserma {
     nSoldati = 0 ;
     this.CapienzaCaserma = CapienzaCaserma ;
   }
-  //Aggiorna Class Diagram
-  //Se il return è true -> nel Main lanciare un metodo di setRisorseTotali (getRisorseTotali()-5);
   public boolean AddestraSoldati (int n) throws AddestramentoFallitoException {
     boolean ad = true ;
     if (n>CapienzaCaserma){
