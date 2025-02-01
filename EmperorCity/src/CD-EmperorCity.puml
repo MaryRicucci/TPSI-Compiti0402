@@ -1,0 +1,64 @@
+@startuml
+class Main {
+Citta: Citta
+SimulaGiorno ()
+}
+class Città {
+Granaio: Granaio
+Porto: PortoCommerciale
+Caserma: Caserma
+Produci ():
+Scambia():
+}
+
+class Granaio {
+LimiteRisorse: int
+RisorseProdotteOgniGiorno: int
+RisorseTotali:int
+Produci () : String
+StampaRisorseTotali (): int
+
+}
+
+class PortoCommerciale {
+RisorseTotali:int
+InviaRisorse (int risorse):int
+RiceviRisorse (int risorse):int
+}
+
+class Caserma {
+Soldati[]:Soldato
+AddestraSoldati (int nSoldati):String
+FaiRonde ()
+SedaRivolta(double Probabilità):int
+DifendiCitta (double Probabilità):int
+}
+class Soldato {
+MansioneAdd: String
+Costo: final int
+}
+
+exception MassimoRisorseSuperatoException extends Exception {
+}
+exception ScarsitàRisorseException extends Exception {
+}
+exception AddestramentoFallitoException extends RunTimeException {
+}
+exception InvasioneAvvenutaException extends Exception {
+}
+exception RivoltaAvvenutaException extends Exception{
+}
+
+Main "1"--> "10" Città
+Caserma -- AddestramentoFallitoException
+Caserma -- InvasioneAvvenutaException
+Caserma -- RivoltaAvvenutaException
+Città --> Caserma
+Città --> Granaio
+Città --> PortoCommerciale
+Caserma "1" --> "1..*" Soldato
+Granaio -- MassimoRisorseSuperatoException
+PortoCommerciale -- ScarsitàRisorseException
+@enduml
+
+
