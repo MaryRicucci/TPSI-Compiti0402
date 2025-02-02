@@ -1,0 +1,47 @@
+@startuml
+:Utente: as u
+:Rettore: as r
+:Studente: as s
+:Professore: as p
+:PersonaleAmministrativo: as pa
+
+rectangle GestioneUniversità {
+(gestire gli studenti) as g
+(definire i corsi) as d
+(supervisionare le attività accademiche) as sup
+(richiedere colloqui privati con il rettore) as rich
+(iscriversi ai corsi) as sign
+(visualizzare i risultati) as view
+(accedere alle risorse online) as access
+(autenticazione dell'utente) as aut
+(definire i programmi) as def
+(valutare gli studenti) as val
+(caricare materiai didattici) as c
+(gestire le iscrizioni) as gi
+(generare report) as gr
+(mantenere aggiornato l'archivio degli studenti) as ma
+usecase ms as "Mandare solletici agli studenti morosi
+----
+Se lo studente risulta moroso dall'archivio"
+}
+pa -- gi
+pa -- gr
+pa -- ma
+access ..> aut : <<include>>
+def ..> aut : <<include>>
+val ..> aut : <<include>>
+c ..> aut : <<include>>
+s -- access
+s -- sign
+p -- c
+p -- val
+p -- def
+s -- view
+r -- g
+r -- d
+r -- sup
+u -- rich
+u <|-- p
+u <|-- pa
+u <|-- s
+@enduml
