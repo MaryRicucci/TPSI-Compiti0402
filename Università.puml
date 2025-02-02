@@ -27,6 +27,7 @@ Se lo studente risulta moroso dall'archivio"
 pa -- gi
 pa -- gr
 pa -- ma
+pa -- ms
 access ..> aut : <<include>>
 def ..> aut : <<include>>
 val ..> aut : <<include>>
